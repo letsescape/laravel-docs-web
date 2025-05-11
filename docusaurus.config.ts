@@ -23,6 +23,15 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  // MDX 파싱 오류를 무시하도록 설정
+  markdown: {
+    mdx1Compat: {
+      comments: false,
+      admonitions: false,
+      headingIds: false,
+    },
+  },
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
