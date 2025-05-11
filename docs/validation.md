@@ -1212,7 +1212,7 @@ use Illuminate\Validation\Rule;
 <a name="rule-alpha"></a>
 #### alpha
 
-유효성 검증 대상 필드는 [\p{L}](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AL%3A%5D&g=&i=) 및 [\p{M}](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AM%3A%5D&g=&i=)에 속하는 유니코드 알파벳 문자만을 포함해야 합니다.
+유효성 검증 대상 필드는 `\p{L}` 및 `\p{M}`에 속하는 유니코드 알파벳 문자만을 포함해야 합니다.
 
 ASCII 범위(`a-z`, `A-Z`) 내 문자만 허용하려면, `ascii` 옵션을 규칙에 추가하세요.
 
@@ -1223,7 +1223,7 @@ ASCII 범위(`a-z`, `A-Z`) 내 문자만 허용하려면, `ascii` 옵션을 규�
 <a name="rule-alpha-dash"></a>
 #### alpha_dash
 
-유효성 검증 대상 필드는 [\p{L}](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AL%3A%5D&g=&i=), [\p{M}](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AM%3A%5D&g=&i=), [\p{N}](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AN%3A%5D&g=&i=)에 속하는 유니코드 영문자와 숫자, 그리고 ASCII 대시(`-`), 밑줄(`_`)만 포함해야 합니다.
+유효성 검증 대상 필드는 `\p{L}`, `\p{M}`, `\p{N}`에 속하는 유니코드 영문자와 숫자, 그리고 ASCII 대시(`-`), 밑줄(`_`)만 포함해야 합니다.
 
 이 규칙을 ASCII 범위(`a-z`, `A-Z`, `0-9`)로 제한하려면 `ascii` 옵션을 추가하세요.
 
@@ -1234,7 +1234,7 @@ ASCII 범위(`a-z`, `A-Z`) 내 문자만 허용하려면, `ascii` 옵션을 규�
 <a name="rule-alpha-num"></a>
 #### alpha_num
 
-유효성 검증 대상 필드는 [\p{L}](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AL%3A%5D&g=&i=), [\p{M}](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AM%3A%5D&g=&i=), [\p{N}](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AN%3A%5D&g=&i=)에 해당하는 유니코드 영문자와 숫자만을 포함해야 합니다.
+유효성 검증 대상 필드는 `\p{L}`, `\p{M}`, `\p{N}`에 해당하는 유니코드 영문자와 숫자만을 포함해야 합니다.
 
 ASCII 범위(`a-z`, `A-Z`, `0-9`) 내로 제한하려면 `ascii` 옵션을 규칙에 추가할 수 있습니다.
 
