@@ -1,3 +1,5 @@
+import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+
 /**
  * Creating a sidebar enables you to:
  - create an ordered group of docs
@@ -9,10 +11,7 @@
  Create as many sidebars as you want.
  */
 
-// @ts-check
-
-/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-const sidebars = {
+const sidebars: SidebarsConfig = {
   // Laravel 문서를 위한 사이드바 설정
   tutorialSidebar: [
     {
@@ -25,12 +24,12 @@ const sidebars = {
       label: '아키텍처 개념',
       collapsed: false,
       items: [
-        'architecture/lifecycle',
-        'architecture/container',
+        'lifecycle',
+        'container',
         // 아래 항목들은 해당 파일이 생성되면 주석 해제
-        // 'architecture/providers',
-        // 'architecture/facades',
-        // 'architecture/contracts',
+        // 'providers',
+        // 'facades',
+        // 'contracts',
       ],
     },
     {
@@ -38,17 +37,17 @@ const sidebars = {
       label: '기본 개념',
       collapsed: false,
       items: [
-        'basics/routing',
+        'routing',
         // 아래 항목들은 해당 파일이 생성되면 주석 해제
-        // 'basics/middleware',
-        // 'basics/controllers',
-        // 'basics/requests',
-        // 'basics/responses',
-        // 'basics/views',
-        // 'basics/blade',
-        // 'basics/session',
-        // 'basics/validation',
-        // 'basics/errors',
+        // 'middleware',
+        // 'controllers',
+        // 'requests',
+        // 'responses',
+        // 'views',
+        // 'blade',
+        // 'session',
+        // 'validation',
+        // 'errors',
       ],
     },
     // 아래 카테고리들은 해당 파일이 생성되면 주석 해제
@@ -58,8 +57,8 @@ const sidebars = {
       label: '프론트엔드',
       collapsed: true,
       items: [
-        'frontend/vite',
-        'frontend/frontend',
+        'vite',
+        'frontend',
       ],
     },
     {
@@ -67,11 +66,11 @@ const sidebars = {
       label: '데이터베이스',
       collapsed: true,
       items: [
-        'database/database',
-        'database/queries',
-        'database/migrations',
-        'database/seeding',
-        'database/eloquent',
+        'database',
+        'queries',
+        'migrations',
+        'seeding',
+        'eloquent',
       ],
     },
     {
@@ -79,10 +78,10 @@ const sidebars = {
       label: '테스팅',
       collapsed: true,
       items: [
-        'testing/testing',
-        'testing/console-tests',
-        'testing/dusk',
-        'testing/mocking',
+        'testing',
+        'console-tests',
+        'dusk',
+        'mocking',
       ],
     },
     {
@@ -90,12 +89,12 @@ const sidebars = {
       label: '보안',
       collapsed: true,
       items: [
-        'security/authentication',
-        'security/authorization',
-        'security/verification',
-        'security/encryption',
-        'security/hashing',
-        'security/passwords',
+        'authentication',
+        'authorization',
+        'verification',
+        'encryption',
+        'hashing',
+        'passwords',
       ],
     },
     {
@@ -103,18 +102,18 @@ const sidebars = {
       label: '고급 주제',
       collapsed: true,
       items: [
-        'advanced/artisan',
-        'advanced/broadcasting',
-        'advanced/cache',
-        'advanced/events',
-        'advanced/filesystem',
-        'advanced/http-client',
-        'advanced/localization',
-        'advanced/mail',
-        'advanced/packages',
-        'advanced/queues',
-        'advanced/rate-limiting',
-        'advanced/scheduling',
+        'artisan',
+        'broadcasting',
+        'cache',
+        'events',
+        'filesystem',
+        'http-client',
+        'localization',
+        'mail',
+        'packages',
+        'queues',
+        'rate-limiting',
+        'scheduling',
       ],
     },
     {
@@ -122,12 +121,12 @@ const sidebars = {
       label: '배포',
       collapsed: true,
       items: [
-        'deployment/deployment',
-        'deployment/envoy',
+        'deployment',
+        'envoy',
       ],
     },
     */
   ],
 };
 
-module.exports = sidebars;
+export default sidebars;
