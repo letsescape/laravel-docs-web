@@ -1,0 +1,26 @@
+{
+  "tutorialSidebar": [
+    {
+      "type": "doc",
+      "id": "intro",
+      "label": "소개"
+    },
+    {
+      "type": "category",
+      "label": "아키텍처 개념",
+      "collapsed": false,
+      "items": [
+        "architecture/lifecycle",
+        "architecture/container"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "기본 개념",
+      "collapsed": false,
+      "items": [
+        "basics/routing"
+      ]
+    }
+  ]
+}

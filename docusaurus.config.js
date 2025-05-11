@@ -22,7 +22,7 @@ const config = {
   organizationName: 'letsescape', // Usually your GitHub org/user name.
   projectName: 'laravel-docs-web', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -30,8 +30,20 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'ko',
-    locales: ['ko'],
+    locales: ['ko', 'en'],
   },
+
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["en", "ko"],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -44,14 +56,22 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/letsescape/laravel-docs-web/tree/main/',
+          routeBasePath: 'docs',
+          includeCurrentVersion: true,
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: '12.x',
+              path: '',
+            },
+            '11.x': {
+              label: '11.x',
+              path: '11.x',
+            },
+          },
+          // remarkPlugins 설정 제거
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/letsescape/laravel-docs-web/tree/main/',
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -77,7 +97,17 @@ const config = {
             position: 'left',
             label: '문서',
           },
-          {to: '/blog', label: '블로그', position: 'left'},
+          // 블로그 기능 비활성화
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            dropdownItemsAfter: [],
+            dropdownActiveClassDisabled: true,
+          },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
           {
             href: 'https://github.com/letsescape/laravel-docs-web',
             label: 'GitHub',
@@ -109,10 +139,7 @@ const config = {
           {
             title: '더 보기',
             items: [
-              {
-                label: '블로그',
-                to: '/blog',
-              },
+              // 블로그 기능 비활성화
               {
                 label: 'GitHub',
                 href: 'https://github.com/letsescape/laravel-docs-web',
