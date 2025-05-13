@@ -57,9 +57,9 @@ const config: Config = {
       '@docusaurus/plugin-content-docs',
       {
         id: 'default',
-        path: 'docs',
+        path: 'versioned_docs/version-12.x',
         routeBasePath: 'docs',
-        sidebarPath: './sidebars.ts',
+        sidebarPath: './versioned_sidebars/version-12.x-sidebars.json',
         // 버전 관리 설정
         includeCurrentVersion: true,
         lastVersion: 'current',
@@ -67,10 +67,6 @@ const config: Config = {
           current: {
             label: '12.x',
             path: '',
-          },
-          '11.x': {
-            label: '11.x',
-            path: '11.x',
           },
         },
         // 기타 설정
