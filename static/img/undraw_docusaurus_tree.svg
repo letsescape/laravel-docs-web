@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Tree</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FF2D20" x="90" y="100" width="20" height="100"></rect>
+        <circle fill="#FF2D20" cx="100" cy="70" r="50"></circle>
+    </g>
+</svg>
