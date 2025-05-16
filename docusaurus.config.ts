@@ -41,17 +41,8 @@ const config: Config = {
     // locales: ['ko', 'en'],
   },
 
-  themes: [
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        hashed: true,
-        language: ["en", "ko"],
-        highlightSearchTermsOnTargetPage: true,
-        explicitSearchResultPath: true,
-      },
-    ],
-  ],
+  // 테마 설정
+  themes: [],
 
   plugins: [
     [
@@ -92,6 +83,19 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/laravel-social-card.jpg',
+
+    // Algolia DocSearch 설정
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'P3AV656TKT',
+      // Public API key: it is safe to commit it
+      apiKey: '36cb770af37e1af6373a80778092f985',
+      indexName: 'laravel-chanhyung',
+      // 검색 결과 페이지 경로 설정
+      searchPagePath: 'search',
+      // 사용자 검색 분석 기능 활성화
+      insights: true,
+    },
 
     navbar: {
       title: 'Laravel 한국어 문서',
