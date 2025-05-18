@@ -164,11 +164,11 @@ const config: Config = {
           items: [
             {
               label: '시작하기',
-              to: '/docs/intro',
+              to: '/docs/12.x/intro',
             },
             {
               label: '아키텍처 개념',
-              to: '/docs/architecture/container',
+              to: '/docs/12.x/architecture/container',
             },
           ],
         },
