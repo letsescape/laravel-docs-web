@@ -18,7 +18,6 @@
         "installation",
         "configuration",
         "structure",
-        "frontend",
         "starter-kits",
         "deployment"
       ]
@@ -47,7 +46,6 @@
         "responses",
         "views",
         "blade",
-        "vite",
         "urls",
         "session",
         "validation",
@@ -64,8 +62,7 @@
         "broadcasting",
         "cache",
         "collections",
-        "concurrency",
-        "context",
+        "mix",
         "contracts",
         "events",
         "filesystem",
@@ -75,10 +72,8 @@
         "mail",
         "notifications",
         "packages",
-        "processes",
         "queues",
         "rate-limiting",
-        "strings",
         "scheduling"
       ]
     },
@@ -105,8 +100,7 @@
         "pagination",
         "migrations",
         "seeding",
-        "redis",
-        "mongodb"
+        "redis"
       ]
     },
     {
@@ -119,8 +113,7 @@
         "eloquent-collections",
         "eloquent-mutators",
         "eloquent-resources",
-        "eloquent-serialization",
-        "eloquent-factories"
+        "eloquent-serialization"
       ]
     },
     {
@@ -141,23 +134,16 @@
       "label": "Packages",
       "collapsed": true,
       "items": [
+        "starter-kits#laravel-breeze",
         "billing",
         "cashier-paddle",
         "dusk",
         "envoy",
         "fortify",
-        "folio",
         "homestead",
         "horizon",
-        "mix",
         "octane",
         "passport",
-        "pennant",
-        "pint",
-        "precognition",
-        "prompts",
-        "pulse",
-        "reverb",
         "sail",
         "sanctum",
         "scout",
@@ -169,7 +155,7 @@
     {
       "type": "link",
       "label": "API Documentation",
-      "href": "https://api.laravel.com/docs/12.x"
+      "href": "https://api.laravel.com/docs/8.x"
     }
   ]
 }

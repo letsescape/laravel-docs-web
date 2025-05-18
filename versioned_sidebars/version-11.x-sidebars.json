@@ -141,6 +141,7 @@
       "label": "Packages",
       "collapsed": true,
       "items": [
+        "starter-kits#laravel-breeze",
         "billing",
         "cashier-paddle",
         "dusk",
@@ -169,7 +170,7 @@
     {
       "type": "link",
       "label": "API Documentation",
-      "href": "https://api.laravel.com/docs/12.x"
+      "href": "https://api.laravel.com/docs/11.x"
     }
   ]
 }
