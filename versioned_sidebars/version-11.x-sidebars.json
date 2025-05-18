@@ -141,7 +141,7 @@
       "label": "Packages",
       "collapsed": true,
       "items": [
-        "starter-kits#laravel-breeze",
+        "starter-kits",
         "billing",
         "cashier-paddle",
         "dusk",

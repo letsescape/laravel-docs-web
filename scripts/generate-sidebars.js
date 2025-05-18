@@ -34,7 +34,13 @@ function parseSidebar(docContent, version) {
     const itemMatch = line.match(/^\s+- \[(.+)\]\(\/docs\/\{\{version\}\}\/(.+)\)$/);
     if (itemMatch && currentCategory) {
       const itemLabel = itemMatch[1];
-      const itemPath = itemMatch[2];
+      let itemPath = itemMatch[2];
+
+      // Remove any anchor links from the path (e.g., 'starter-kits#laravel-breeze' -> 'starter-kits')
+      if (itemPath.includes('#')) {
+        itemPath = itemPath.split('#')[0];
+      }
+
       currentCategory.items.push(itemPath);
       continue;
     }
