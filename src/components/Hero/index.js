@@ -38,11 +38,6 @@ export default function Hero() {
                 to="/docs/12.x/installation">
                 시작하기
               </Link>
-              <Link
-                className={clsx('button button--outline button--lg', styles.heroButton)}
-                to="/docs/12.x/installation">
-                문서 보기
-              </Link>
             </div>
             <div className={styles.codeSnippet}>
               <pre className={styles.codeBlock}>
