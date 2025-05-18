@@ -155,7 +155,7 @@
     {
       "type": "link",
       "label": "API Documentation",
-      "href": "https://api.laravel.com/docs/8.x"
+      "href": "https://api.laravel.com/docs/8.x/"
     }
   ]
 }
