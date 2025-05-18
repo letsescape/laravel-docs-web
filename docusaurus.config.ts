@@ -5,9 +5,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Laravel 한국어 문서',
+  title: 'Laravel',
   tagline: 'PHP 웹 애플리케이션 프레임워크 라라벨의 모든 것을 한글로 만나보세요',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
   url: 'https://laravel.chanhyung.kim',
@@ -82,7 +82,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/laravel-social-card.jpg',
+    image: 'img/958072.png',
 
     // 다크 모드 설정
     colorMode: {
@@ -98,11 +98,11 @@ const config: Config = {
       {property: 'og:type', content: 'website'},
       {property: 'og:title', content: 'Laravel 한국어 문서 - PHP 웹 프레임워크'},
       {property: 'og:description', content: '라라벨(Laravel) 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.'},
-      {property: 'og:image', content: 'img/laravel-social-card.jpg'},
+      {property: 'og:image', content: 'img/958072.png'},
       {name: 'twitter:card', content: 'summary_large_image'},
       {name: 'twitter:title', content: 'Laravel 한국어 문서 - PHP 웹 프레임워크'},
       {name: 'twitter:description', content: '라라벨(Laravel) 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.'},
-      {name: 'twitter:image', content: 'img/laravel-social-card.jpg'},
+      {name: 'twitter:image', content: 'img/958072.png'},
     ],
 
     // Algolia DocSearch 설정
@@ -119,10 +119,12 @@ const config: Config = {
     },
 
     navbar: {
-      title: 'Laravel 한국어 문서',
+      title: null,
       logo: {
         alt: 'Laravel Logo',
-        src: 'img/logo.svg',
+        src: 'img/title_large.svg',
+        srcDark: 'img/title_large.svg',
+        className: 'navbar-logo',
       },
       items: [
         {
@@ -150,6 +152,12 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
+      logo: {
+        alt: 'Laravel Logo',
+        src: 'img/title_large.svg',
+        href: '/',
+        className: 'footer-logo',
+      },
       links: [
         {
           title: '문서',

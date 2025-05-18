@@ -17,6 +17,17 @@
   margin-right: 2rem;
 }
 
+.heroLogo {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.heroLogo img {
+  transition: filter 0.3s ease;
+  max-width: 100%;
+}
+
 .heroTitle {
   font-size: 2.5rem;
   font-weight: 700;

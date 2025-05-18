@@ -5,26 +5,203 @@
  */
 
 /* You can override the default Infima variables here. */
+/* TEST COMMENT - CUSTOM CSS IS WORKING */
 :root {
-  --ifm-color-primary: #ff2d20;
-  --ifm-color-primary-dark: #ff1305;
-  --ifm-color-primary-darker: #f50d00;
-  --ifm-color-primary-darkest: #c90b00;
-  --ifm-color-primary-light: #ff473b;
-  --ifm-color-primary-lighter: #ff5246;
-  --ifm-color-primary-lightest: #ff7d74;
+  --ifm-color-primary: #f53003;
+  --ifm-color-primary-dark: #dd2b03;
+  --ifm-color-primary-darker: #d02902;
+  --ifm-color-primary-darkest: #ab2202;
+  --ifm-color-primary-light: #fd3b11;
+  --ifm-color-primary-lighter: #fd451e;
+  --ifm-color-primary-lightest: #fd6342;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* SVG logo color variables */
+  --svg-logo-color: #f53003;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #ff2d20;
-  --ifm-color-primary-dark: #ff1305;
-  --ifm-color-primary-darker: #f50d00;
-  --ifm-color-primary-darkest: #c90b00;
-  --ifm-color-primary-light: #ff473b;
-  --ifm-color-primary-lighter: #ff5246;
-  --ifm-color-primary-lightest: #ff7d74;
+  --ifm-color-primary: #f61500;
+  --ifm-color-primary-dark: #dd1300;
+  --ifm-color-primary-darker: #d11200;
+  --ifm-color-primary-darkest: #ac0f00;
+  --ifm-color-primary-light: #ff2a17;
+  --ifm-color-primary-lighter: #ff3624;
+  --ifm-color-primary-lightest: #ff5a4c;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* SVG logo color variables for dark mode */
+  --svg-logo-color: #f61500;
+}
+
+/* Logo styling */
+.navbar-logo {
+  height: 30px;
+}
+
+/* SVG logo styling using CSS variables */
+.navbar__logo svg,
+.footer__logo svg,
+.heroLogo svg,
+.hero-svg-logo {
+  color: var(--svg-logo-color);
+}
+
+/* SVG path styling */
+.navbar__logo svg path,
+.footer__logo svg path,
+.heroLogo svg path,
+.hero-svg-logo path,
+svg path[fill="currentColor"] {
+  fill: var(--svg-logo-color) !important;
+}
+
+/* SVG logo styling based on browser inspection */
+svg[width="1280"][height="308"][fill="none"] path {
+  fill: var(--svg-logo-color) !important;
+}
+
+/* More specific selectors for SVG logo */
+svg[width][height][fill="none"] path[fill="currentColor"] {
+  fill: var(--svg-logo-color) !important;
+}
+
+/* Target SVGs with inline width and height attributes */
+svg[width][height] path {
+  fill: var(--svg-logo-color) !important;
+}
+
+/* Target SVG root elements */
+svg:root path[fill="currentColor"] {
+  fill: var(--svg-logo-color) !important;
+}
+
+/* Target SVG elements with specific attributes */
+svg[width="1280"][height="308"] {
+  color: var(--svg-logo-color) !important;
+}
+
+/* Dark mode SVG styling */
+[data-theme='dark'] svg[width="1280"][height="308"] {
+  color: var(--svg-logo-color) !important;
+}
+
+[data-theme='dark'] svg.text-laravel-red {
+  color: var(--svg-logo-color) !important;
+}
+
+/* Class-based selectors for SVG logo */
+.navbar-logo svg path,
+.footer-logo svg path,
+.heroLogo svg path {
+  fill: var(--svg-logo-color) !important;
+}
+
+/* Footer logo full width styling */
+.footer__logo-container {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 3rem;
+  display: block;
+  text-align: center;
+}
+
+.footer__logo {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
+}
+
+.footer-logo {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+}
+
+.footer__logo svg {
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+}
+
+/* Footer layout adjustments */
+.footer__links {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer__col {
+  margin-bottom: 1rem;
+}
+
+.footer__bottom {
+  margin-bottom: 1.5rem;
+}
+
+/* Hero SVG logo styling */
+.hero-svg-logo {
+  color: var(--svg-logo-color);
+}
+
+/* SVG class-based styling */
+.text-laravel-red {
+  color: var(--svg-logo-color) !important;
+}
+
+/* Direct SVG element styling */
+svg[class*="text-laravel-red"] {
+  color: var(--svg-logo-color) !important;
+}
+
+/* Ensure all paths in SVGs with text-laravel-red class use the theme color */
+svg[class*="text-laravel-red"] path {
+  fill: var(--svg-logo-color) !important;
+}
+
+/* SVG class-based styling */
+.text-laravel-red {
+  color: var(--svg-logo-color) !important;
+}
+
+/* Direct SVG element styling */
+svg[class*="text-laravel-red"] {
+  color: var(--svg-logo-color) !important;
+}
+
+/* Target logo SVGs specifically */
+.navbar__logo svg path,
+.footer__logo svg path,
+.heroLogo svg path {
+  fill: var(--svg-logo-color) !important;
+}
+
+/* Override for specific SVG paths that should not be colored */
+svg:not(.navbar__logo):not(.footer__logo) path:not([fill="currentColor"]) {
+  fill: none !important;
+}
+
+/* Button and link hover effects */
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.navbar__link:hover,
+.footer__link-item:hover,
+.menu__link:hover {
+  color: var(--svg-logo-color);
+}
+
+/* Active link color */
+.navbar__link--active,
+.menu__link--active {
+  color: var(--svg-logo-color);
+}
+
+[data-theme='dark'] .button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
 }
