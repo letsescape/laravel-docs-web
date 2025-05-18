@@ -35,6 +35,10 @@
   margin-bottom: 1.5rem;
 }
 
+.heroTitleHighlight {
+  color: var(--svg-logo-color);
+}
+
 .heroSubtitle {
   font-size: 1.2rem;
   line-height: 1.5;

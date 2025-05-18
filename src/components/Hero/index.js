@@ -23,8 +23,8 @@ export default function Hero() {
               </div>
             </div>
             <h1 className={styles.heroTitle}>
-              생산성을 위해<br />
-              만들어진 도구로<br />
+              <span className={styles.heroTitleHighlight}>생산성을 위해<br />
+              만들어진 도구</span>로<br />
               소프트웨어 개발하기
             </h1>
             <p className={styles.heroSubtitle}>
