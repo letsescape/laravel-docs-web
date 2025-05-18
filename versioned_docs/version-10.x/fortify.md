@@ -1,4 +1,4 @@
-# 라라벨 Fortify (Laravel Fortify)
+# 라라벨 포티파이 (Laravel Fortify)
 
 - [소개](#introduction)
     - [Fortify란?](#what-is-fortify)

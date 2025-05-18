@@ -1,4 +1,4 @@
-# Redis (Redis)
+# 레디스 (Redis)
 
 - [소개](#introduction)
 - [설정](#configuration)

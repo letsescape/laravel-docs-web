@@ -1,4 +1,4 @@
-# 라라벨 Homestead (Laravel Homestead)
+# 라라벨 홈스테드 (Laravel Homestead)
 
 - [소개](#introduction)
 - [설치 및 설정](#installation-and-setup)

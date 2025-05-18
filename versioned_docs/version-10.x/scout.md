@@ -1,4 +1,4 @@
-# 라라벨 Scout (Laravel Scout)
+# 라라벨 스카우트 (Laravel Scout)
 
 - [소개](#introduction)
 - [설치](#installation)

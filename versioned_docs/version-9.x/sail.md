@@ -1,4 +1,4 @@
-# 라라벨 Sail (Laravel Sail)
+# 라라벨 세일 (Laravel Sail)
 
 - [소개](#introduction)
 - [설치 및 셋업](#installation)

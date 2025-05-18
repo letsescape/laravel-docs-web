@@ -1,4 +1,4 @@
-# 라라벨 Dusk (Laravel Dusk)
+# 라라벨 더스크 (Laravel Dusk)
 
 - [소개](#introduction)
 - [설치](#installation)

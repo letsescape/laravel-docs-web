@@ -1,4 +1,4 @@
-# 라라벨 Valet (Laravel Valet)
+# 라라벨 발렛 (Laravel Valet)
 
 - [소개](#introduction)
 - [설치](#installation)

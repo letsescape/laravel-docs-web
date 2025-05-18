@@ -1,4 +1,4 @@
-# 라라벨 Horizon (Laravel Horizon)
+# 라라벨 호라이즌 (Laravel Horizon)
 
 - [소개](#introduction)
 - [설치](#installation)

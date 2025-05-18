@@ -1,4 +1,4 @@
-# 라라벨 Socialite (Laravel Socialite)
+# 라라벨 소셜라이트 (Laravel Socialite)
 
 - [소개](#introduction)
 - [설치](#installation)

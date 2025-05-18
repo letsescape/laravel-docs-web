@@ -1,4 +1,4 @@
-# 라라벨 Folio (Laravel Folio)
+# 라라벨 폴리오 (Laravel Folio)
 
 - [소개](#introduction)
 - [설치](#installation)

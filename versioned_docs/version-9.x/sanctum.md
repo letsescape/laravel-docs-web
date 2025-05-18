@@ -1,4 +1,4 @@
-# 라라벨 Sanctum (Laravel Sanctum)
+# 라라벨 생텀 (Laravel Sanctum)
 
 - [소개](#introduction)
     - [동작 방식](#how-it-works)

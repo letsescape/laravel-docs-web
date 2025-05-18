@@ -1,4 +1,4 @@
-# 라라벨 Octane (Laravel Octane)
+# 라라벨 옥테인 (Laravel Octane)
 
 - [소개](#introduction)
 - [설치](#installation)

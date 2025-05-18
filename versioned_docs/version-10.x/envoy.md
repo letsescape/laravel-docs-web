@@ -1,4 +1,4 @@
-# 라라벨 Envoy (Laravel Envoy)
+# 라라벨 엔보이 (Laravel Envoy)
 
 - [소개](#introduction)
 - [설치](#installation)

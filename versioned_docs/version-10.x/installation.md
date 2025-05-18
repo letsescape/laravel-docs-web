@@ -1,3 +1,7 @@
+---
+slug: /
+---
+
 # 설치 (Installation)
 
 - [라라벨 알아보기](#meet-laravel)

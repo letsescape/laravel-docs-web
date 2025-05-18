@@ -1,4 +1,4 @@
-# 라라벨 Sail (Laravel Sail)
+# 라라벨 세일 (Laravel Sail)
 
 - [소개](#introduction)
 - [설치 및 설정](#installation)
@@ -124,7 +124,7 @@ sail up
 sail up -d
 ```
 
-컨테이너들이 시작되면 웹 브라우저를 통해 http://localhost에서 프로젝트에 접속할 수 있습니다.
+컨테이너들이 시작되면 웹 브라우저를 통해 `http://localhost`에서 프로젝트에 접속할 수 있습니다.
 
 모든 컨테이너를 종료하려면 단순히 Control + C를 누르면 됩니다. 백그라운드로 실행 중인 경우에는 `stop` 명령어를 사용하면 됩니다.
 
@@ -276,7 +276,7 @@ AWS_USE_PATH_STYLE_ENDPOINT=true
 AWS_URL=http://localhost:9000/local
 ```
 
-버킷은 MinIO 콘솔(http://localhost:8900)에서 생성할 수 있습니다. MinIO 콘솔의 기본 아이디는 `sail`, 비밀번호는 `password`입니다.
+버킷은 MinIO 콘솔(`http://localhost:8900`)에서 생성할 수 있습니다. MinIO 콘솔의 기본 아이디는 `sail`, 비밀번호는 `password`입니다.
 
 > [!WARNING]
 > MinIO를 사용할 때는 `temporaryUrl` 메서드로 임시 저장소 URL을 생성하는 기능이 지원되지 않습니다.
@@ -362,7 +362,7 @@ MAIL_PORT=1025
 MAIL_ENCRYPTION=null
 ```
 
-Sail이 실행 중이면, http://localhost:8025에서 Mailpit 웹 인터페이스에 접속할 수 있습니다.
+Sail이 실행 중이면, `http://localhost:8025`에서 Mailpit 웹 인터페이스에 접속할 수 있습니다.
 
 <a name="sail-container-cli"></a>
 ## 컨테이너 CLI

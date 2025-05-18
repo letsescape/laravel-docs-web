@@ -1,4 +1,4 @@
-# 라라벨 Pulse (Laravel Pulse)
+# 라라벨 펄스 (Laravel Pulse)
 
 - [소개](#introduction)
 - [설치](#installation)

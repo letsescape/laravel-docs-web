@@ -1,4 +1,4 @@
-# 인증(Authentication)
+# 인증 (Authentication)
 
 - [소개](#introduction)
     - [스타터 키트](#starter-kits)
