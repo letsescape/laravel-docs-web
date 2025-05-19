@@ -82,7 +82,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/958072.png',
+    image: 'img/logo.png',
 
     // 다크 모드 설정
     colorMode: {
@@ -94,15 +94,15 @@ const config: Config = {
     // SEO 메타데이터
     metadata: [
       {name: 'keywords', content: '라라벨, Laravel, PHP 프레임워크, 웹 개발, 한글 문서, 튜토리얼, 시작하기'},
-      {name: 'description', content: '라라벨(Laravel) 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.'},
+      {name: 'description', content: '라라벨 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.'},
       {property: 'og:type', content: 'website'},
-      {property: 'og:title', content: 'Laravel 한국어 문서 - PHP 웹 프레임워크'},
-      {property: 'og:description', content: '라라벨(Laravel) 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.'},
-      {property: 'og:image', content: 'img/958072.png'},
+      {property: 'og:title', content: '라라벨 한국어 문서 - PHP 웹 프레임워크'},
+      {property: 'og:description', content: '라라벨 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.'},
+      {property: 'og:image', content: 'https://laravel.chanhyung.kim/img/logo.png'},
       {name: 'twitter:card', content: 'summary_large_image'},
-      {name: 'twitter:title', content: 'Laravel 한국어 문서 - PHP 웹 프레임워크'},
-      {name: 'twitter:description', content: '라라벨(Laravel) 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.'},
-      {name: 'twitter:image', content: 'img/958072.png'},
+      {name: 'twitter:title', content: '라라벨 한국어 문서 - PHP 웹 프레임워크'},
+      {name: 'twitter:description', content: '라라벨 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.'},
+      {name: 'twitter:image', content: 'https://laravel.chanhyung.kim/img/logo.png'},
     ],
 
     // Algolia DocSearch 설정

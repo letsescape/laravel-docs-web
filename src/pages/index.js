@@ -16,27 +16,25 @@ export default function Home() {
 
   return (
     <Layout
-      title={`라라벨 시작하기`}
-      description="라라벨(Laravel) 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요.">
+      title={`라라벨 - 웹 장인을 위한 PHP 프레임워크`}
+      description="라라벨은 표현력이 풍부하고 우아한 문법을 갖춘 PHP 웹 애플리케이션 프레임워크입니다. 사소한 부분에 얽매이지 않고 창작에만 집중할 수 있습니다.">
       <Head>
         {/* 기본 메타 태그 */}
-        <meta name="keywords" content="라라벨, Laravel, PHP 프레임워크, 웹 개발, 한글 문서, 튜토리얼, 시작하기" />
+        <meta name="keywords" content="라라벨, Laravel, PHP 프레임워크, PHP artisan, PHP, 웹 개발, 한글 문서, 튜토리얼, 시작하기" />
         <link rel="canonical" href={url} />
 
-        {/* Open Graph 태그 */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="라라벨 한국어 문서 - PHP 웹 프레임워크" />
-        <meta property="og:description" content="라라벨(Laravel) 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요." />
+        <meta property="og:title" content="라라벨 - 웹 장인을 위한 PHP 프레임워크" />
+        <meta property="og:description" content="라라벨은 표현력이 풍부하고 우아한 문법을 갖춘 PHP 웹 애플리케이션 프레임워크입니다. 사소한 부분에 얽매이지 않고 창작에만 집중할 수 있습니다." />
         <meta property="og:url" content={url} />
         <meta property="og:site_name" content={siteConfig.title} />
-        <meta property="og:image" content={`${url}/img/958072.png`} />
-        <meta property="og:image:alt" content="라라벨 한국어 문서 대표 이미지" />
+        <meta property="og:image" content={`${url}/img/laravel-home.png`} />
+        <meta property="og:image:alt" content="라라벨 - 웹 장인을 위한 PHP 프레임워크" />
 
-        {/* Twitter 태그 */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="라라벨 한국어 문서 - PHP 웹 프레임워크" />
-        <meta name="twitter:description" content="라라벨(Laravel) 프레임워크의 설치 방법, 기본 사용법, 주요 기능들을 한글로 쉽게 배우고 시작하세요." />
-        <meta name="twitter:image" content={`${url}/img/958072.png`} />
+        <meta name="twitter:title" content="라라벨 - 웹 장인을 위한 PHP 프레임워크" />
+        <meta name="twitter:description" content="라라벨은 표현력이 풍부하고 우아한 문법을 갖춘 PHP 웹 애플리케이션 프레임워크입니다. 사소한 부분에 얽매이지 않고 창작에만 집중할 수 있습니다." />
+        <meta name="twitter:image" content={`${url}/img/laravel-home.png`} />
       </Head>
       <main>
         <Hero />
