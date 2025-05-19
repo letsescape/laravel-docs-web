@@ -1,0 +1,165 @@
+{
+  "tutorialSidebar": [
+    {
+      "type": "category",
+      "label": "Prologue",
+      "collapsed": true,
+      "items": [
+        "releases",
+        "upgrade",
+        "contributions"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "collapsed": false,
+      "items": [
+        "installation",
+        "configuration",
+        "structure",
+        "frontend",
+        "starter-kits",
+        "deployment"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Architecture Concepts",
+      "collapsed": true,
+      "items": [
+        "lifecycle",
+        "container",
+        "providers",
+        "facades"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "The Basics",
+      "collapsed": true,
+      "items": [
+        "routing",
+        "middleware",
+        "csrf",
+        "controllers",
+        "requests",
+        "responses",
+        "views",
+        "blade",
+        "vite",
+        "urls",
+        "session",
+        "validation",
+        "errors",
+        "logging"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Digging Deeper",
+      "collapsed": true,
+      "items": [
+        "artisan",
+        "broadcasting",
+        "cache",
+        "collections",
+        "contracts",
+        "events",
+        "filesystem",
+        "helpers",
+        "http-client",
+        "localization",
+        "mail",
+        "notifications",
+        "packages",
+        "queues",
+        "rate-limiting",
+        "scheduling"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Security",
+      "collapsed": true,
+      "items": [
+        "authentication",
+        "authorization",
+        "verification",
+        "encryption",
+        "hashing",
+        "passwords"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Database",
+      "collapsed": true,
+      "items": [
+        "database",
+        "queries",
+        "pagination",
+        "migrations",
+        "seeding",
+        "redis"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Eloquent ORM",
+      "collapsed": true,
+      "items": [
+        "eloquent",
+        "eloquent-relationships",
+        "eloquent-collections",
+        "eloquent-mutators",
+        "eloquent-resources",
+        "eloquent-serialization",
+        "eloquent-factories"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Testing",
+      "collapsed": true,
+      "items": [
+        "testing",
+        "http-tests",
+        "console-tests",
+        "dusk",
+        "database-testing",
+        "mocking"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Packages",
+      "collapsed": true,
+      "items": [
+        "starter-kits",
+        "billing",
+        "cashier-paddle",
+        "dusk",
+        "envoy",
+        "fortify",
+        "homestead",
+        "horizon",
+        "mix",
+        "octane",
+        "passport",
+        "pint",
+        "sail",
+        "sanctum",
+        "scout",
+        "socialite",
+        "telescope",
+        "valet"
+      ]
+    },
+    {
+      "type": "link",
+      "label": "API Documentation",
+      "href": "https://api.laravel.com/docs/9.x"
+    }
+  ]
+}
