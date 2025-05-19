@@ -202,7 +202,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Laravel 한국어 문서. Built with Docusaurus.`,
+      copyright: `Copyright © 2025 kimchanhyung98. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
