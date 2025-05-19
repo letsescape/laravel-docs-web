@@ -35,7 +35,7 @@ export default function Hero() {
             <div className={styles.heroButtons}>
               <Link
                 className={clsx('button button--primary button--lg', styles.heroButton)}
-                to="/docs/12.x/installation">
+                to="/docs/12.x">
                 시작하기
               </Link>
             </div>
