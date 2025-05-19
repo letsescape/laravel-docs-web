@@ -53,12 +53,28 @@ const config: Config = {
         routeBasePath: 'docs',
         sidebarPath: './versioned_sidebars/version-12.x-sidebars.json',
         // 버전 관리 설정
-        includeCurrentVersion: true,
-        lastVersion: 'current',
+        includeCurrentVersion: false,
+        lastVersion: '12.x',
         versions: {
-          current: {
+          '12.x': {
             label: '12.x',
             path: '12.x',
+          },
+          '11.x': {
+            label: '11.x',
+            path: '11.x',
+          },
+          '10.x': {
+            label: '10.x',
+            path: '10.x',
+          },
+          '9.x': {
+            label: '9.x',
+            path: '9.x',
+          },
+          '8.x': {
+            label: '8.x',
+            path: '8.x',
           },
         },
         // 기타 설정
@@ -128,8 +144,7 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          to: '/docs/12.x',
           position: 'left',
           label: '문서',
         },
@@ -143,11 +158,7 @@ const config: Config = {
           type: 'localeDropdown',
           position: 'right',
         },
-        {
-          href: 'https://github.com/letsescape/laravel-docs-web',
-          label: 'GitHub',
-          position: 'right',
-        },
+
       ],
     },
     footer: {

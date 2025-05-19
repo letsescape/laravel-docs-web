@@ -169,7 +169,7 @@
     {
       "type": "link",
       "label": "API Documentation",
-      "href": "https://api.laravel.com/docs/11.x"
+      "href": "https://api.laravel.com/docs/12.x"
     }
   ]
 }
