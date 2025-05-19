@@ -1,4 +1,4 @@
-# 요청 제한 (Rate Limiting)
+# 속도 제한 (Rate Limiting)
 
 - [소개](#introduction)
     - [캐시 설정](#cache-configuration)
@@ -9,15 +9,15 @@
 <a name="introduction"></a>
 ## 소개
 
-라라벨은 애플리케이션의 [캐시](cache)와 함께 사용할 수 있는 간단한 요청 제한 추상화 기능을 제공합니다. 이를 통해 특정 동작을 지정한 시간 동안 손쉽게 제한할 수 있습니다.
+라라벨은 간단하게 사용할 수 있는 속도 제한(rate limiting) 추상화를 제공하며, 애플리케이션의 [캐시](cache)와 함께 지정된 시간 동안 특정 작업의 실행을 쉽게 제한할 수 있습니다.
 
 > [!NOTE]
-> 들어오는 HTTP 요청에 대한 요청 제한을 적용하려는 경우, [요청 제한 미들웨어 문서](/docs/routing#rate-limiting)를 참고하시기 바랍니다.
+> 외부에서 들어오는 HTTP 요청에 대한 속도 제한이 궁금하다면, [속도 제한 미들웨어 문서](/docs/12.x/routing#rate-limiting)를 참고하시기 바랍니다.
 
 <a name="cache-configuration"></a>
 ### 캐시 설정
 
-일반적으로 요청 제한기는 애플리케이션의 `cache` 설정 파일에 있는 `default` 키로 지정된 기본 캐시를 사용합니다. 그러나 요청 제한기에 사용할 캐시 드라이버를 별도로 지정하고 싶다면, 애플리케이션의 `cache` 설정 파일에 `limiter` 키를 추가하여 사용할 캐시 드라이버를 지정할 수 있습니다.
+일반적으로, 속도 제한 기능은 애플리케이션의 `cache` 설정 파일에 정의된 `default` 키를 통해 기본 캐시 드라이버를 사용합니다. 하지만, 애플리케이션의 `cache` 설정 파일에 `limiter` 키를 추가하여 속도 제한에 사용할 캐시 드라이버를 별도로 지정할 수도 있습니다.
 
 ```php
 'default' => env('CACHE_STORE', 'database'),
@@ -28,9 +28,9 @@
 <a name="basic-usage"></a>
 ## 기본 사용법
 
-`Illuminate\Support\Facades\RateLimiter` 파사드를 사용하면 요청 제한 기능과 상호작용할 수 있습니다. 요청 제한기가 제공하는 가장 단순한 메서드는 `attempt` 메서드로, 지정한 콜백을 몇 초 동안 지정한 횟수까지만 실행하도록 제한합니다.
+`Illuminate\Support\Facades\RateLimiter` 파사드를 사용하면 속도 제한 기능과 상호작용할 수 있습니다. 속도 제한에서 제공하는 가장 간단한 메서드는 `attempt` 메서드로, 지정한 초 동안 콜백의 실행 횟수를 제한할 수 있습니다.
 
-`attempt` 메서드는 추가로 시도할 수 있는 횟수가 남아 있지 않은 경우 `false`를 반환합니다. 그렇지 않으면 콜백의 반환값 또는 `true`를 반환합니다. `attempt` 메서드의 첫 번째 인수는 요청 제한을 적용할 "키"로, 제한하고자 하는 동작을 나타내는 임의의 문자열을 지정할 수 있습니다.
+`attempt` 메서드는 더 이상 실행 가능한 시도가 남아 있지 않으면 `false`를 반환하고, 그렇지 않은 경우 콜백의 결과값이나 `true`를 반환합니다. `attempt` 메서드의 첫 번째 인수는 속도 제한할 작업을 대표하는 임의의 문자열 "키"입니다.
 
 ```php
 use Illuminate\Support\Facades\RateLimiter;
@@ -48,7 +48,7 @@ if (! $executed) {
 }
 ```
 
-필요하다면 `attempt` 메서드에 네 번째 인수(“감쇠 시간”, 즉 횟수 제한이 초기화되기까지의 초 단위 시간)를 전달할 수 있습니다. 예를 들어, 아래와 같이 2분마다 5번의 시도를 허용하도록 설정할 수 있습니다.
+필요하다면, 네 번째 인수로 "감쇠 시간(decay rate)"(즉, 제한 횟수가 초기화될 때까지의 초 단위 시간)을 지정할 수 있습니다. 예를 들어, 위 예시를 수정하여 2분마다 5번의 시도가 가능하도록 할 수 있습니다.
 
 ```php
 $executed = RateLimiter::attempt(
@@ -64,7 +64,7 @@ $executed = RateLimiter::attempt(
 <a name="manually-incrementing-attempts"></a>
 ### 시도 횟수 수동 증가
 
-요청 제한기를 직접 더 세밀하게 제어하고 싶다면 여러 가지 메서드를 사용할 수 있습니다. 예를 들어, `tooManyAttempts` 메서드를 호출하면 특정 요청 제한 키가 허용된 시도 횟수를 분당 초과했는지 확인할 수 있습니다.
+속도 제한 기능을 더 세밀하게 제어하고 싶다면, 다양한 메서드를 수동으로 사용할 수 있습니다. 예를 들어, `tooManyAttempts` 메서드를 호출하여 특정 rate limiter 키가 분당 허용 최대 시도 횟수를 초과했는지 확인할 수 있습니다.
 
 ```php
 use Illuminate\Support\Facades\RateLimiter;
@@ -78,7 +78,7 @@ RateLimiter::increment('send-message:'.$user->id);
 // Send message...
 ```
 
-또한 `remaining` 메서드를 사용해 해당 키로 남아 있는 시도 횟수를 가져올 수 있습니다. 시도 횟수가 남아 있다면 `increment` 메서드로 총 시도 횟수를 직접 증가시킬 수 있습니다.
+또는, `remaining` 메서드를 사용해서 해당 키에 대해 남아 있는 시도 가능 횟수를 확인할 수 있습니다. 만약 시도 가능 횟수가 남아 있다면, `increment` 메서드를 호출하여 실제 시도 횟수를 증가시킬 수 있습니다.
 
 ```php
 use Illuminate\Support\Facades\RateLimiter;
@@ -90,16 +90,16 @@ if (RateLimiter::remaining('send-message:'.$user->id, $perMinute = 5)) {
 }
 ```
 
-특정 요청 제한 키의 값을 한 번에 1보다 더 크게 증가시키고 싶다면, 원하는 증가 값을 `increment` 메서드에 전달할 수 있습니다.
+특정 rate limiter 키의 값을 한 번에 여러 번 증가시키고 싶다면, `increment` 메서드에 원하는 증가값을 인수로 전달하면 됩니다.
 
 ```php
 RateLimiter::increment('send-message:'.$user->id, amount: 5);
 ```
 
 <a name="determining-limiter-availability"></a>
-#### 제한 가능 여부 확인
+#### 제한 해제까지 남은 시간 확인
 
-어떤 키에 더 이상 시도 가능 횟수가 남아 있지 않을 때는, `availableIn` 메서드를 사용해 추가 시도를 할 수 있게 되기까지 남은 초(second) 단위 시간을 확인할 수 있습니다.
+더 이상 시도할 수 없는 경우, `availableIn` 메서드를 사용하면 추가 시도가 가능해질 때까지 남은 시간을 초 단위로 확인할 수 있습니다.
 
 ```php
 use Illuminate\Support\Facades\RateLimiter;
@@ -118,7 +118,7 @@ RateLimiter::increment('send-message:'.$user->id);
 <a name="clearing-attempts"></a>
 ### 시도 횟수 초기화
 
-특정 요청 제한 키에 대한 시도 횟수를 `clear` 메서드로 초기화할 수 있습니다. 예를 들어, 사용자가 특정 메시지를 읽었을 때(수신자가 메시지를 확인했을 때) 시도 횟수를 초기화할 수 있습니다.
+특정 rate limiter 키에 대해 시도 횟수를 초기화하려면 `clear` 메서드를 사용할 수 있습니다. 예를 들어, 수신자가 메시지를 읽었을 때 시도 횟수를 리셋할 수 있습니다.
 
 ```php
 use App\Models\Message;
