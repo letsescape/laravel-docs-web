@@ -1,4 +1,4 @@
-# 라라벨 Cashier (Stripe) (Laravel Cashier (Stripe))
+# 라라벨 Cashier, Stripe (Laravel Cashier (Stripe))
 
 - [소개](#introduction)
 - [Cashier 업그레이드](#upgrading-cashier)
