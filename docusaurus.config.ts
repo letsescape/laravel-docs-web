@@ -90,8 +90,11 @@ const config: Config = {
         docs: false, // 플러그인으로 대체
         blog: false,
         gtag: {
-          trackingID: 'GTM-MDN4L5LV',
+          trackingID: 'G-P3YFWCWEBP',
           anonymizeIP: true,
+        },
+        googleTagManager: {
+          containerId: 'GTM-MDN4L5LV',
         },
         theme: {
           customCss: './src/css/custom.css',
