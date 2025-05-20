@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Laravel',
-  tagline: 'PHP 웹 애플리케이션 프레임워크 라라벨의 모든 것을 한글로 만나보세요',
+  tagline: '라라벨',
   favicon: 'img/favicon.png',
 
   // Set the production url of your site here
@@ -124,9 +124,9 @@ const config: Config = {
     // Algolia DocSearch 설정
     algolia: {
       // The application ID provided by Algolia
-      appId: 'P3AV656TKT',
+      appId: 'I09J6O9PPB',
       // Public API key: it is safe to commit it
-      apiKey: '36cb770af37e1af6373a80778092f985',
+      apiKey: '9490c4a274419bf3d76145ab91c89b14',
       indexName: 'laravel-chanhyung',
       // 검색 결과 페이지 경로 설정
       searchPagePath: 'search',
