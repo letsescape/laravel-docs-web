@@ -89,6 +89,10 @@ const config: Config = {
       {
         docs: false, // 플러그인으로 대체
         blog: false,
+        gtag: {
+          trackingID: 'GTM-MDN4L5LV',
+          anonymizeIP: true,
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
