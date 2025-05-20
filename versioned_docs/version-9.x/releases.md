@@ -29,19 +29,6 @@
 | 9 | 8.0 - 8.2 | 2022년 2월 8일 | 2023년 8월 8일 | 2024년 2월 6일 |
 | 10 | 8.1 - 8.3 | 2023년 2월 14일 | 2024년 8월 6일 | 2025년 2월 4일 |
 
-<div class="version-colors">
-```
-<div class="end-of-life">
-    <div class="color-box"></div>
-    <div>End of life</div>
-</div>
-<div class="security-fixes">
-    <div class="color-box"></div>
-    <div>Security fixes only</div>
-</div>
-```
-</div>
-
 (*) 지원되는 PHP 버전
 
 <a name="laravel-9"></a>

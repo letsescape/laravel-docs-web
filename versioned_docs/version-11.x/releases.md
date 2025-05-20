@@ -32,19 +32,6 @@
 
 </div>
 
-<div class="version-colors">
-```
-<div class="end-of-life">
-    <div class="color-box"></div>
-    <div>End of life</div>
-</div>
-<div class="security-fixes">
-    <div class="color-box"></div>
-    <div>Security fixes only</div>
-</div>
-```
-</div>
-
 (*) 지원되는 PHP 버전
 
 <a name="laravel-11"></a>
