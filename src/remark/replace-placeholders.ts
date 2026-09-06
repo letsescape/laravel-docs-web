@@ -1,4 +1,4 @@
-import type {InlineCode, Link, Root, Text} from 'mdast';
+import type {InlineCode, Link, Paragraph, Root, Text} from 'mdast';
 import type {Transformer} from 'unified';
 import type {VFile} from 'vfile';
 import {visit} from 'unist-util-visit';
@@ -40,7 +40,7 @@ function linkLabel(node: Link): string | null {
  * 치환 규칙:
  * 1. `{{version}}` → 현재 파일이 속한 버전(예: `11.x`)
  * 2. `/docs/<version>/installation[#anchor]` → `/docs/<version>/[#anchor]`(번역본의 `installation.md`가 `slug: /`인 루트 페이지이므로 경로 보정)
- * 3. 버전별 폐기 링크 → 레지스트리에 지정된 대체 링크 또는 링크 없는 인라인 코드
+ * 3. 버전별 폐기 링크 → 레지스트리에 지정된 대체 링크, 일반 목차 텍스트 또는 링크 없는 인라인 코드
  *
  * - 코드 블록과 인라인 코드의 내용은 플레이스홀더 치환 대상에서 제외
  * - 사용자가 Laravel 코드 예제를 그대로 복사할 수 있도록 원형 보존
@@ -70,6 +70,11 @@ export default function replacePlaceholdersPlugin(): Transformer<Root> {
       node.value = applyText(node.value);
     });
 
+    const listParagraphs = new Set<Paragraph>();
+    visit(tree, 'paragraph', (node, _index, parent) => {
+      if (parent?.type === 'listItem') listParagraphs.add(node);
+    });
+
     visit(tree, 'link', (node: Link, index, parent) => {
       if (!node.url) return;
       const normalizedUrl = applyUrl(node.url);
@@ -82,7 +87,16 @@ export default function replacePlaceholdersPlugin(): Transformer<Root> {
         node.url = resolution.target;
         return;
       }
-      if (resolution.retireMode !== 'bare-inline-code') {
+      const standaloneListLabel = resolution.retireMode === 'standalone-list-label';
+      if (
+        standaloneListLabel &&
+        (parent?.type !== 'paragraph' ||
+          parent.children.length !== 1 ||
+          !listParagraphs.has(parent))
+      ) {
+        return;
+      }
+      if (!standaloneListLabel && resolution.retireMode !== 'bare-inline-code') {
         throw new Error('unsupported stale link retirement');
       }
 
@@ -90,7 +104,10 @@ export default function replacePlaceholdersPlugin(): Transformer<Root> {
       if (index === undefined || parent === undefined || label === null) {
         throw new Error('stale link cannot be retired safely');
       }
-      const replacement: InlineCode = {type: 'inlineCode', value: label};
+      const replacement: InlineCode | Text = {
+        type: standaloneListLabel ? 'text' : 'inlineCode',
+        value: label,
+      };
       parent.children[index] = replacement;
     });
   };

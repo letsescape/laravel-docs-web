@@ -190,6 +190,27 @@ class PostprocessTests(unittest.TestCase):
                     expected,
                 )
 
+    def test_retires_only_the_v13_core_discussion_toc_link(self):
+        """삭제된 13.x 섹션의 목차만 일반 텍스트로 남기고 다른 문맥·버전은 보존."""
+
+        for label in ("Core Development Discussion", "코어 개발 논의", "コア開発の議論"):
+            link = f"[{label}](#core-development-discussion)"
+            protected = (
+                f"\n{link}\n\n"
+                f"- See {link}\n\n"
+                f"`{link}`\n"
+                f"<!-- {link} -->\n"
+                f"```md\n- {link}\n```\n"
+            )
+            text = f"- {link}\n" + protected
+            expected = f"- {label}\n" + protected
+
+            with self.subTest(label=label):
+                self.assertEqual(postprocess.postprocess(text, "13.x", {}), expected)
+                self.assertEqual(postprocess.postprocess(expected, "13.x", {}), expected)
+                self.assertEqual(postprocess.postprocess(text, "master", {}), text)
+                self.assertEqual(postprocess.postprocess(text, "12.x", {}), text)
+
     def test_replaces_the_stale_v9_shortcode_toc_entry_with_unicode_content(self):
         """9.x의 shortcode 목차를 공식 후속 항목으로 교체."""
 

@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
 import {join} from 'node:path';
 
+import {unified} from 'unified';
+import remarkParse from 'remark-parse';
+
+import replacePlaceholdersPlugin from '../src/remark/replace-placeholders.ts';
 import {extractMarkdownLinks} from './markdown-link-utils.mjs';
 import {
   docsVersionFromUrl,
@@ -114,5 +118,28 @@ assert.deepEqual(
     retireMode: null,
   },
 );
+
+const processor = unified().use(remarkParse).use(replacePlaceholdersPlugin);
+for (const version of ['13.x', 'master', '12.x']) {
+  for (const label of ['Core Development Discussion', '코어 개발 논의', 'コア開発の議論']) {
+    const link = `[${label}](#core-development-discussion)`;
+    const markdown = [
+      `- ${link}`,
+      link,
+      `- See ${link}`,
+      `\`${link}\``,
+      `<!-- ${link} -->`,
+      `\`\`\`md\n- ${link}\n\`\`\`\n`,
+    ].join('\n\n');
+    const original = processor.parse(markdown);
+    const tree = await processor.run(processor.parse(markdown), {
+      path: `/repo/versioned_docs/version-${version}/contributions.md`,
+    });
+    const tocLabel = tree.children[0].children[0].children[0].children[0];
+    assert.equal(tocLabel.type, version === '13.x' ? 'text' : 'link');
+    if (version === '13.x') assert.equal(tocLabel.value, label);
+    assert.deepEqual(tree.children.slice(1), original.children.slice(1));
+  }
+}
 
 console.log('markdown-link-utils tests passed');
