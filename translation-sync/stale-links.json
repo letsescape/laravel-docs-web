@@ -38,12 +38,6 @@
       "retire_mode": null
     },
     {
-      "version": "13.x",
-      "from": "#core-development-discussion",
-      "to": null,
-      "retire_mode": "standalone-list-label"
-    },
-    {
       "version": "8.x",
       "from": "#assert-similar-json",
       "to": null,

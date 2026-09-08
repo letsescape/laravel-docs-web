@@ -130,15 +130,13 @@ for (const version of ['13.x', 'master', '12.x']) {
       `\`${link}\``,
       `<!-- ${link} -->`,
       `\`\`\`md\n- ${link}\n\`\`\`\n`,
+      `<a name="core-development-discussion"></a>\n## ${label}`,
     ].join('\n\n');
     const original = processor.parse(markdown);
     const tree = await processor.run(processor.parse(markdown), {
       path: `/repo/versioned_docs/version-${version}/contributions.md`,
     });
-    const tocLabel = tree.children[0].children[0].children[0].children[0];
-    assert.equal(tocLabel.type, version === '13.x' ? 'text' : 'link');
-    if (version === '13.x') assert.equal(tocLabel.value, label);
-    assert.deepEqual(tree.children.slice(1), original.children.slice(1));
+    assert.deepEqual(tree, original);
   }
 }
 
