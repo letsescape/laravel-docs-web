@@ -15,6 +15,7 @@
     - [Filtering Queries via Intermediate Table Columns](#filtering-queries-via-intermediate-table-columns)
     - [Ordering Queries via Intermediate Table Columns](#ordering-queries-via-intermediate-table-columns)
     - [Defining Custom Intermediate Table Models](#defining-custom-intermediate-table-models)
+        - [Automatically Hydrating Pivot Relationships](#automatically-hydrating-pivot-relationships)
 - [Polymorphic Relationships](#polymorphic-relationships)
     - [One to One](#one-to-one-polymorphic-relations)
     - [One to Many](#one-to-many-polymorphic-relations)
@@ -1122,6 +1123,52 @@ class RoleUser extends Pivot
 {
     // ...
 }
+```
+
+<a name="automatically-hydrating-pivot-relationships"></a>
+<!-- #### Automatically Hydrating Pivot Relationships -->
+#### Automatically Hydrating Pivot Relationships
+
+<!-- When a custom pivot model defines `belongsTo` relationships for the declaring and related models, you may invoke `chaperone` to automatically hydrate those relationships on each pivot model. This avoids additional queries when accessing the models through the pivot: -->
+사용자 정의 피벗 모델이 선언 모델과 연관 모델에 대한 `belongsTo` 연관관계를 정의한 경우, `chaperone`을 호출하여 각 피벗 모델에서 해당 연관관계를 자동으로 하이드레이션할 수 있습니다. 이렇게 하면 피벗을 통해 모델에 접근할 때 추가 쿼리를 실행하지 않아도 됩니다.
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+class RoleUser extends Pivot
+{
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+}
+
+class Role extends Model
+{
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class)
+            ->using(RoleUser::class)
+            ->chaperone();
+    }
+}
+```
+
+<!-- Eloquent will attempt to infer the pivot relationship names. If your pivot model uses non-standard names, pass the declaring and related relationship names to `chaperone`: -->
+Eloquent는 피벗 연관관계 이름을 추론합니다. 피벗 모델에서 표준이 아닌 이름을 사용한다면, 선언 연관관계와 연관 연관관계의 이름을 `chaperone`에 전달합니다.
+
+```php
+return $this->belongsToMany(User::class)
+    ->using(RoleUser::class)
+    ->chaperone(declaring: 'role', related: 'user');
 ```
 
 <a name="polymorphic-relationships"></a>

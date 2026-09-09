@@ -709,6 +709,43 @@ User::class => [
 ],
 ```
 
+<a name="typesense-embeddings"></a>
+<!-- #### Embeddings -->
+#### Embeddings
+
+<!-- To enable semantic and hybrid search, define an `embedding` setting and vector field in the model's Typesense configuration. By default, Scout uses the [Laravel AI SDK](/docs/13.x/ai-sdk) to generate embeddings: -->
+セマンティック検索とハイブリッド検索を有効にするには、モデルの Typesense 設定で `embedding` 設定とベクトルフィールドを定義します。デフォルトでは、Scout は [Laravel AI SDK](/docs/13.x/ai-sdk) を使用して埋め込みを生成します。
+
+```php
+use App\Models\Article;
+
+'model-settings' => [
+    Article::class => [
+        'collection-schema' => [
+            'fields' => [
+                ['name' => 'title', 'type' => 'string'],
+                ['name' => 'embedding', 'type' => 'float[]', 'num_dim' => 1536],
+            ],
+        ],
+        'search-parameters' => ['query_by' => 'title'],
+        'embedding' => [
+            'attribute' => 'embedding',
+            'dimensions' => 1536,
+        ],
+    ],
+],
+```
+
+<!-- Your model's `toSearchableEmbedding` method should return the source text that Scout should embed or a precomputed embedding array: -->
+モデルの `toSearchableEmbedding` メソッドは、Scout が埋め込みを生成する対象のソーステキスト、または事前計算済みの埋め込み配列を返す必要があります。
+
+```php
+public function toSearchableEmbedding(): string|array
+{
+    return $this->title.' '.$this->body;
+}
+```
+
 <a name="typesense-dynamic-search-parameters"></a>
 <!-- #### Dynamic Search Parameters -->
 #### Dynamic Search Parameters
@@ -1101,8 +1138,8 @@ $orders = Order::search('Star Trek')->raw();
 <!-- ### Semantic Search -->
 ### Semantic Search
 
-<!-- The database, Meilisearch, and Turbopuffer engines support semantic search, which matches records based on the meaning of a query. When Scout generates embeddings, semantic and hybrid searches require the [Laravel AI SDK](/docs/13.x/ai-sdk). Turbopuffer's [native embeddings](#turbopuffer-configuration) and precomputed query vectors do not require the Laravel AI SDK. -->
-データベース、Meilisearch、Turbopuffer の各エンジンは、クエリの意味に基づいてレコードを照合するセマンティック検索をサポートしています。Scout が埋め込みを生成する場合、セマンティック検索とハイブリッド検索には [Laravel AI SDK](/docs/13.x/ai-sdk) が必要です。Turbopuffer の [native embeddings](#turbopuffer-configuration) と事前計算済みのクエリベクトルには Laravel AI SDK は必要ありません。
+<!-- The database, Meilisearch, Typesense, and Turbopuffer engines support semantic search, which matches records based on the meaning of a query. When Scout generates embeddings, semantic and hybrid searches require the [Laravel AI SDK](/docs/13.x/ai-sdk). [Typesense's native embeddings](#typesense-embeddings), [Turbopuffer's native embeddings](#turbopuffer-configuration), and precomputed query vectors do not require the Laravel AI SDK. -->
+データベース、Meilisearch、Typesense、Turbopuffer の各エンジンは、クエリの意味に基づいてレコードを照合するセマンティック検索をサポートしています。Scout が埋め込みを生成する場合、セマンティック検索とハイブリッド検索には [Laravel AI SDK](/docs/13.x/ai-sdk) が必要です。[Typesense's native embeddings](#typesense-embeddings)、[Turbopuffer's native embeddings](#turbopuffer-configuration)、および事前計算済みのクエリベクトルには Laravel AI SDK は必要ありません。
 
 <!-- After configuring embeddings for the selected engine, invoke the `semantic` method on a search query: -->
 選択したエンジンの埋め込みを設定したら、検索クエリに対して `semantic` メソッドを呼び出します。

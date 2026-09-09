@@ -1981,6 +1981,9 @@ test('orders can be shipped', function () {
     // Assert a notification was sent twice...
     Notification::assertSentTimes(WeeklyReminder::class, 2);
 
+    // Assert that a notification was sent to a user exactly once...
+    Notification::assertSentToOnce($user, OrderShipped::class);
+
     // Assert that a given number of notifications were sent...
     Notification::assertCount(3);
 });
@@ -2019,6 +2022,9 @@ class ExampleTest extends TestCase
         // Assert a notification was sent twice...
         Notification::assertSentTimes(WeeklyReminder::class, 2);
 
+        // Assert that a notification was sent to a user exactly once...
+        Notification::assertSentToOnce($user, OrderShipped::class);
+
         // Assert that a given number of notifications were sent...
         Notification::assertCount(3);
     }
@@ -2046,6 +2052,7 @@ Notification::assertSentTo(
 
 ```php
 Notification::assertSentOnDemand(OrderShipped::class);
+Notification::assertSentOnDemandOnce(OrderShipped::class);
 ```
 
 <!-- By passing a closure as the second argument to the `assertSentOnDemand` method, you may determine if an on-demand notification was sent to the correct "route" address: -->
