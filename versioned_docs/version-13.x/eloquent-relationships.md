@@ -1163,7 +1163,7 @@ class Role extends Model
 ```
 
 <!-- Eloquent will attempt to infer the pivot relationship names. If your pivot model uses non-standard names, pass the declaring and related relationship names to `chaperone`: -->
-Eloquent는 피벗 연관관계 이름을 추론합니다. 피벗 모델에서 표준이 아닌 이름을 사용한다면, 선언 연관관계와 연관 연관관계의 이름을 `chaperone`에 전달합니다.
+Eloquent는 피벗 연관관계 이름의 추론을 시도합니다. 피벗 모델에서 표준이 아닌 이름을 사용한다면, 선언 모델과 연관 모델에 해당하는 연관관계 이름을 `chaperone`에 전달합니다.
 
 ```php
 return $this->belongsToMany(User::class)
